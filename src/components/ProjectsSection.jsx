@@ -3,32 +3,32 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react";
 const projects = [
   {
     id: 1,
-    title: "SaaS Landing Page",
-    description: "A beautiful landing page app using React and Tailwind.",
+    title: "Second-Brain",
+    description: "An innovative idea to help people share their ideas and thoughts.",
     image: "/projects/project1.png",
-    tags: ["React", "TailwindCSS", "Supabase"],
+    tags: ["TypeScript", "TailwindCSS", "Express"],
     demoUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/harshGupta090722/Second_Brain",
   },
   {
     id: 2,
-    title: "Orbit Analytics Dashboard",
+    title: "Mentora",
     description:
-      "Interactive analytics dashboard with data visualization and filtering capabilities.",
+      "A Fully functional Course Selling app where admins can create and sell ,As well as user can buy courses.",
     image: "/projects/project2.png",
-    tags: ["TypeScript", "D3.js", "Next.js"],
+    tags: ["JavaScript", "Express", "React"],
     demoUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/harshGupta090722/Mentora",
   },
   {
     id: 3,
     title: "E-commerce Platform",
     description:
-      "Full-featured e-commerce platform with user authentication and payment processing.",
+      "A Frontend for E-commerce website with select,items and push to cart functionality.",
     image: "/projects/project3.png",
-    tags: ["React", "Node.js", "Stripe"],
+    tags: ["HTML", "CSS","JavaScript"],
     demoUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/harshGupta090722/E-Commerce-Website-With-Cart",
   },
 ];
 
@@ -100,7 +100,7 @@ export const ProjectsSection = () => {
           <a
             className="cosmic-button w-fit flex items-center mx-auto gap-2"
             target="_blank"
-            href="https://github.com/machadop1407"
+            href="https://github.com/harshGupta090722"
           >
             Check My Github <ArrowRight size={16} />
           </a>

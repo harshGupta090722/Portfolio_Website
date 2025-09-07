@@ -16,9 +16,7 @@ export const AboutSection = () => {
             </h3>
 
             <p className="text-muted-foreground">
-              With over 5 years of experience in web development, I specialize
-              in creating responsive, accessible, and performant web
-              applications using modern technologies.
+              I love building products that merge creativity with technology. From front-end interfaces to back-end systems and AI-powered features, I develop projects that are practical, performant, and innovative.
             </p>
 
             <p className="text-muted-foreground">
@@ -64,10 +62,9 @@ export const AboutSection = () => {
                   <User className="h-6 w-6 text-primary" />
                 </div>
                 <div className="text-left">
-                  <h4 className="font-semibold text-lg">UI/UX Design</h4>
+                  <h4 className="font-semibold text-lg">DSA in Java</h4>
                   <p className="text-muted-foreground">
-                    Designing intuitive user interfaces and seamless user
-                    experiences.
+                    Solving complex problems with efficient algorithms and data structures in Java.
                   </p>
                 </div>
               </div>
@@ -79,10 +76,10 @@ export const AboutSection = () => {
                 </div>
 
                 <div className="text-left">
-                  <h4 className="font-semibold text-lg">Project Management</h4>
+                  <h4 className="font-semibold text-lg">AI & ML Enthusiasm</h4>
                   <p className="text-muted-foreground">
-                    Leading projects from conception to completion with agile
-                    methodologies.
+                    Passionate about artificial intelligence and machine learning, with a strong
+                    drive to explore and master them in the near future.
                   </p>
                 </div>
               </div>
