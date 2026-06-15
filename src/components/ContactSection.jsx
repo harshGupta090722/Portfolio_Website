@@ -1,34 +1,65 @@
 import {
-  Instagram,
+  Calendar,
+  Code2,
+  Github,
   Linkedin,
   Mail,
   MapPin,
-  Phone,
   Send,
-  Twitch,
-  Twitter,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 
+const FORMSPREE_ENDPOINT = `https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_FORM_ID}`;
+
 export const ContactSection = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      toast({
-        title: "Message sent!",
-        description: "Thank you for your message. I'll get back to you soon.",
+    const formData = new FormData(e.target);
+    formData.append("_replyto", formData.get("email"));
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
       });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        toast({
+          title: "Message sent!",
+          description: "Thank you for your message. I'll get back to you soon.",
+        });
+        e.target.reset();
+      } else {
+        toast({
+          title: "Something went wrong",
+          description:
+            result.error || "Please try again or email me directly.",
+          variant: "destructive",
+        });
+      }
+    } catch {
+      toast({
+        title: "Something went wrong",
+        description: "Please try again or email me directly.",
+        variant: "destructive",
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
+
   return (
     <section id="contact" className="py-24 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
@@ -56,7 +87,7 @@ export const ContactSection = () => {
                 <div>
                   <h4 className="font-medium"> Email</h4>
                   <a
-                    href="mailto:hello@gmail.com"
+                    href="mailto:harshgupta0907@gmail.com"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     harshgupta0907@gmail.com
@@ -65,15 +96,17 @@ export const ContactSection = () => {
               </div>
               <div className="flex items-start space-x-4">
                 <div className="p-3 rounded-full bg-primary/10">
-                  <Phone className="h-6 w-6 text-primary" />{" "}
+                  <Github className="h-6 w-6 text-primary" />{" "}
                 </div>
                 <div>
-                  <h4 className="font-medium"> Phone</h4>
+                  <h4 className="font-medium"> GitHub</h4>
                   <a
-                    href="tel:+11234567890"
+                    href="https://github.com/harshGupta090722"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    +91 9555121352
+                    harshGupta090722
                   </a>
                 </div>
               </div>
@@ -84,7 +117,7 @@ export const ContactSection = () => {
                 <div>
                   <h4 className="font-medium"> Location</h4>
                   <a className="text-muted-foreground hover:text-primary transition-colors">
-                   Noida ,Delhi-NCR ,India.
+                    Delhi-NCR ,India.
                   </a>
                 </div>
               </div>
@@ -93,26 +126,50 @@ export const ContactSection = () => {
             <div className="pt-8">
               <h4 className="font-medium mb-4"> Connect With Me</h4>
               <div className="flex space-x-4 justify-center">
-                <a href="https://www.linkedin.com/in/harsh-gupta-04455b24a/" target="_blank">
-                  <Linkedin />
+                <a
+                  href="https://www.linkedin.com/in/harsh-gupta-09-07-2004-/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors duration-300"
+                >
+                  <Linkedin className="h-5 w-5" />
                 </a>
-                <a href="https://x.com/harsh_5376" target="_blank">
-                  <Twitter />
+                <a
+                  href="https://github.com/harshGupta090722"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors duration-300"
+                >
+                  <Github className="h-5 w-5" />
                 </a>
-                <a href="https://leetcode.com/u/HarshG0907/" target="_blank">
-                  <Twitch />
+                <a
+                  href="https://leetcode.com/u/HarshG0907/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors duration-300"
+                >
+                  <Code2 className="h-5 w-5" />
+                </a>
+              </div>
+
+              <div className="mt-6">
+                <a
+                  href="https://cal.com/harsh-gupta-d4bnfc/google-meet"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-md border border-primary text-primary font-medium hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
+                >
+                  <Calendar className="h-4 w-4" />
+                  Book a Meet
                 </a>
               </div>
             </div>
           </div>
 
-          <div
-            className="bg-card p-8 rounded-lg shadow-xs"
-            onSubmit={handleSubmit}
-          >
+          <div className="bg-card p-8 rounded-lg shadow-xs">
             <h3 className="text-2xl font-semibold mb-6"> Send a Message</h3>
 
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label
                   htmlFor="name"
@@ -161,6 +218,7 @@ export const ContactSection = () => {
                   id="message"
                   name="message"
                   required
+                  rows={5}
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary resize-none"
                   placeholder="Hi Harsh,I wanted to talk to you about ...."
                 />

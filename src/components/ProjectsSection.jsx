@@ -1,34 +1,35 @@
-import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import { ArrowRight, Github } from "lucide-react";
 
 const projects = [
   {
     id: 1,
-    title: "Second-Brain",
-    description: "An innovative idea to help people share their ideas and thoughts.",
-    image: "/projects/project1.png",
-    tags: ["TypeScript", "TailwindCSS", "Express"],
-    demoUrl: "#",
-    githubUrl: "https://github.com/harshGupta090722/Second_Brain",
+    title: "SocietyOne",
+    period: "May 2026 – June 2026",
+    description:
+      "Full-stack society rental management platform with role-based dashboards for Admin, Landlord, and Tenant. Includes multi-stage verification workflows, document uploads, and a full lease lifecycle system.",
+    image: "/projects/landlord1.png",
+    tags: ["React.js", "TypeScript", "Node.js", "Express.js", "MongoDB", "JWT", "Multer"],
+    githubUrl: "https://github.com/harshGupta090722/SocietyOne",
   },
   {
     id: 2,
-    title: "Mentora",
+    title: "Web-Track",
+    period: "Feb 2026 – March 2026",
     description:
-      "A Fully functional Course Selling app where admins can create and sell ,As well as user can buy courses.",
-    image: "/projects/project2.png",
-    tags: ["JavaScript", "Express", "React"],
-    demoUrl: "#",
-    githubUrl: "https://github.com/harshGupta090722/Mentora",
+      "Full-stack analytics platform (similar to Google Analytics) for tracking and analyzing website visitors in real time. Built backend APIs for event tracking and live user monitoring with PostgreSQL and Drizzle ORM.",
+    image: "/projects/web-track.png",
+    tags: ["Next.js", "TypeScript", "PostgreSQL", "Drizzle ORM", "Clerk", "AWS EC2", "Nginx"],
+    githubUrl: "https://github.com/harshGupta090722/web-tracker",
   },
   {
     id: 3,
-    title: "E-commerce Platform",
+    title: "BiteExpress",
+    period: "June 2026 – Present",
     description:
-      "A Frontend for E-commerce website with select,items and push to cart functionality.",
-    image: "/projects/project3.png",
-    tags: ["HTML", "CSS","JavaScript"],
-    demoUrl: "#",
-    githubUrl: "https://github.com/harshGupta090722/E-Commerce-Website-With-Cart",
+      "Full-stack food ordering platform with role-based access for Customers, Staff, and Admins. Features real-time order tracking via Apollo GraphQL Subscriptions and Redis, and secure auth with NextAuth + Auth0.",
+    image: "/projects/BiteExpress.png",
+    tags: ["Next.js", "TypeScript", "GraphQL", "PostgreSQL", "Redis", "Prisma", "NextAuth"],
+    githubUrl: "https://github.com/harshGupta090722/BiteExpress",
   },
 ];
 
@@ -69,27 +70,22 @@ export const ProjectsSection = () => {
                   ))}
                 </div>
 
-                <h3 className="text-xl font-semibold mb-1"> {project.title}</h3>
+                <h3 className="text-xl font-semibold mb-1">{project.title}</h3>
+                {project.period && (
+                  <p className="text-xs text-primary/70 font-medium mb-2">{project.period}</p>
+                )}
                 <p className="text-muted-foreground text-sm mb-4">
                   {project.description}
                 </p>
-                <div className="flex justify-between items-center">
-                  <div className="flex space-x-3">
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <ExternalLink size={20} />
-                    </a>
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <Github size={20} />
-                    </a>
-                  </div>
+                <div className="flex items-center">
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                  >
+                    <Github size={20} />
+                  </a>
                 </div>
               </div>
             </div>

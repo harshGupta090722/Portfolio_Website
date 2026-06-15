@@ -2,26 +2,45 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 const skills = [
+  // Languages
+  { name: "Java", level: 85, category: "languages" },
+  { name: "JavaScript", level: 90, category: "languages" },
+  { name: "TypeScript", level: 80, category: "languages" },
+
   // Frontend
-  { name: "HTML/CSS", level: 95, category: "frontend" },
-  { name: "JavaScript", level: 90, category: "frontend" },
-  { name: "React", level: 90, category: "frontend" },
-  { name: "TypeScript", level: 85, category: "frontend" },
-  { name: "Tailwind CSS", level: 90, category: "frontend" },
+  { name: "React.js", level: 90, category: "frontend" },
+  { name: "Next.js", level: 80, category: "frontend" },
+  { name: "TailwindCSS", level: 90, category: "frontend" },
+  { name: "Apollo Client", level: 70, category: "frontend" },
+  { name: "NextAuth", level: 70, category: "frontend" },
 
-  // Backend
-  { name: "Node.js", level: 80, category: "backend" },
-  { name: "Express", level: 75, category: "backend" },
-  { name: "MongoDB", level: 70, category: "backend" },
-  { name: "PostgreSQL", level: 65, category: "backend" },
+  // Backend & Databases
+  { name: "Node.js", level: 85, category: "backend" },
+  { name: "Express.js", level: 82, category: "backend" },
+  { name: "GraphQL (Yoga)", level: 75, category: "backend" },
+  { name: "Prisma ORM", level: 75, category: "backend" },
+  { name: "PostgreSQL", level: 78, category: "backend" },
+  { name: "MongoDB", level: 78, category: "backend" },
+  { name: "Redis", level: 70, category: "backend" },
+  { name: "WebSockets", level: 72, category: "backend" },
 
-  // Tools
-  { name: "Git/GitHub", level: 90, category: "tools" },
-  { name: "Figma", level: 85, category: "tools" },
-  { name: "VS Code", level: 95, category: "tools" },
+  // DevOps & Cloud
+  { name: "AWS (EC2, IAM)", level: 72, category: "devops" },
+  { name: "Docker", level: 75, category: "devops" },
+  { name: "CI/CD", level: 75, category: "devops" },
+  { name: "nginx", level: 70, category: "devops" },
+  { name: "pm2", level: 68, category: "devops" },
+  { name: "Linux", level: 80, category: "devops" },
+
+  // Tools & Concepts
+  { name: "Git & GitHub", level: 90, category: "tools" },
+  { name: "Postman", level: 85, category: "tools" },
+  { name: "OOPS", level: 88, category: "tools" },
+  { name: "DBMS", level: 80, category: "tools" },
+  { name: "Computer Networks", level: 75, category: "tools" },
 ];
 
-const categories = ["all", "frontend", "backend", "tools"];
+const categories = ["all", "languages", "frontend", "backend", "devops", "tools"];
 
 export const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState("all");

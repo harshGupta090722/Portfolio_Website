@@ -1,5 +1,18 @@
 import { Briefcase, Code, User } from "lucide-react";
 
+const handleCVDownload = async () => {
+  const response = await fetch("/Resume_Full_Stack.pdf");
+  const blob = await response.blob();
+  const url = window.URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "Harsh_Gupta_Resume.pdf";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(() => window.URL.revokeObjectURL(url), 1000);
+};
+
 export const AboutSection = () => {
   return (
     <section id="about" className="py-24 px-4 relative">
@@ -12,18 +25,15 @@ export const AboutSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h3 className="text-2xl font-semibold">
-              Passionate Web Developer & Tech Creator
+              Full-Stack Developer & Product Builder
             </h3>
 
             <p className="text-muted-foreground">
-              I love building products that merge creativity with technology. From front-end interfaces to back-end systems and AI-powered features, I develop projects that are practical, performant, and innovative.
+              I build and ship full-stack web apps — from clean, responsive UIs to solid back-end APIs and databases. I've taken projects from idea to live deployment, not just kept them running on localhost.
             </p>
 
             <p className="text-muted-foreground">
-              I'm passionate about creating elegant solutions to complex
-              problems, and I'm constantly learning new technologies and
-              techniques to stay at the forefront of the ever-evolving web
-              landscape.
+              I know how to deploy on AWS, set up CI/CD, work with Docker, and design systems that don't fall apart under load. I care about writing code that's easy to maintain and scales without drama.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
@@ -32,12 +42,12 @@ export const AboutSection = () => {
                 Get In Touch
               </a>
 
-              <a
-                href=""
+              <button
+                onClick={handleCVDownload}
                 className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
               >
                 Download CV
-              </a>
+              </button>
             </div>
           </div>
 

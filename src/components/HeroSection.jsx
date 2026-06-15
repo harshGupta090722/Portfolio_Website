@@ -21,7 +21,7 @@ export const HeroSection = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-            Final-year engineering student skilled in MERN, Java, and AI, building functional and impactful projects while exploring new technologies.
+            Final-year engineering student skilled in Web Development, App Development, and System Design, with a strong interest in exploring AI technologies.
           </p>
 
           <div className="pt-4 opacity-0 animate-fade-in-delay-4">
